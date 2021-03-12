@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\mycustomctlr;
+use App\Http\Controllers\GreatandWhoisCtlr;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [mycustomctlr::class, 'index']);
 
-Route::get('bonjour/{name}',function($name){
-    return view('hello',['name'=>$name]);
-})->name('greating');
+Route::get('bonjour/{name}',[GreatandWhoisCtlr::class, 'great'])->name('greating');
 
-Route::get('whois/{name}',function($name){
-    return view('whois', ['name' => $name]);
-});
+Route::get('whois/{name}',[GreatandWhoisCtlr::class, 'whois']);
 
 Route::get('wanna-great/{name}',function($name){
     return redirect()-> route('greating', ['name' => $name]);
