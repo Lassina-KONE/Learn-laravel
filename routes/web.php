@@ -19,8 +19,12 @@ Route::get('/', function () {
 
 Route::get('bonjour/{name}',function($name){
     return view('hello',['name'=>$name]);
-});
+})->name('greating');
 
 Route::get('whois/{name}',function($name){
     return view('whois', ['name' => $name]);
+});
+
+Route::get('wanna-great/{name}',function($name){
+    return redirect()-> route('greating', ['name' => $name]);
 });
