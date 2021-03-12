@@ -9,3 +9,4 @@
         Hello <strong>{{ $name }}</strong>. <br>
         Welcome to my web page.
     </p>
+@endsection
