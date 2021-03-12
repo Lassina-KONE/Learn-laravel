@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\mycustomctlr;
 use App\Http\Controllers\GreatandWhoisCtlr;
+use App\Http\Controllers\ImagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,8 @@ Route::get('whois/{name}',[GreatandWhoisCtlr::class, 'whois']);
 Route::get('wanna-great/{name}',function($name){
     return redirect()-> route('greating', ['name' => $name]);
 });
+
+Route::get('photo', [ImagesController::class, 'create']);
+Route::post('photo', [ImagesController::class, 'store']);
+
+
